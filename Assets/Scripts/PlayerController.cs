@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     static public PlayerController current;
     public event EventHandler OnDisplayCharacter;
+    public event EventHandler OnDisplayStats;
+
 
 
     private void Awake() 
@@ -35,17 +37,14 @@ public class PlayerController : MonoBehaviour
         {
             OnDisplayCharacter?.Invoke(this, null);
         }
-    }
-
-    void TEST_DisplayTeam()
-    {
-
+        if (Input.GetKeyDown("c"))
+        {
+            OnDisplayStats?.Invoke(this, null);
+        }
     }
 
     void TEST_ReceivingGamePhaseChangeEvent(object sender, GamePhaseChangeEventArgs e)
     {
-        if (e.newGamePhase == null)
-            Debug.Log("1");
         Debug.Log("Received event: Gamephase change to " + e.newGamePhase.Name);
     }
 

@@ -23,11 +23,9 @@ public class GamePhase
 
     public void Enter()
     {
-        Debug.Log("Enter game phase: " + Name);
     }
 
     public void Exit()
     {
-        Debug.Log("Exit game phase: " + Name);
     }
 }

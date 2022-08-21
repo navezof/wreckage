@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 7141478631291318637, guid: 19e361f7493f6462aad2699832751465, type: 3}
-  playerTeamNumberOfCharacter: 2
-  AITeamNumberOfCharacter: 3
+  playerTeamNumberOfCharacter: 1
+  AITeamNumberOfCharacter: 0
 --- !u!4 &468010313
 Transform:
   m_ObjectHideFlags: 0
