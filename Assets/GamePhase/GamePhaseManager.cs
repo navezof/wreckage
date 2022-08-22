@@ -19,9 +19,7 @@ public class GamePhaseManager : MonoBehaviour
         current = this;
 
         foreach (GamePhaseData gamePhaseData in gamePhaseDataList)
-        {
             gamePhaseList.Add(new GamePhase(gamePhaseData));   
-        }
     }
 
     private void Start()
@@ -44,6 +42,7 @@ public class GamePhaseManager : MonoBehaviour
 
     public void ChangeGamePhase()
     {
+        Debug.Log("Change to phase: " + CurrentGamePhase.NextPhaseData);
         ChangeGamePhase(CurrentGamePhase.NextPhaseData);
     }
 

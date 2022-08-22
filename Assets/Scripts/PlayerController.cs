@@ -9,22 +9,11 @@ public class PlayerController : MonoBehaviour
     static public PlayerController current;
     public event EventHandler OnDisplayCharacter;
     public event EventHandler OnDisplayStats;
-
-
+    public event EventHandler OnDisplayBody;
 
     private void Awake() 
     {
         current = this;    
-    }
-
-    private void OnEnable()
-    {
-        GamePhaseManager.current.OnGamePhaseChanged += TEST_ReceivingGamePhaseChangeEvent;
-    }
-
-    private void OnDisable()
-    {
-        GamePhaseManager.current.OnGamePhaseChanged -= TEST_ReceivingGamePhaseChangeEvent;
     }
 
     private void Update()
@@ -41,16 +30,14 @@ public class PlayerController : MonoBehaviour
         {
             OnDisplayStats?.Invoke(this, null);
         }
-    }
-
-    void TEST_ReceivingGamePhaseChangeEvent(object sender, GamePhaseChangeEventArgs e)
-    {
-        Debug.Log("Received event: Gamephase change to " + e.newGamePhase.Name);
+        if (Input.GetKeyDown("d"))
+        {
+            OnDisplayBody?.Invoke(this, null);
+        }
     }
 
     void TEST_GamePhaseChange()
     {
-        Debug.Log("TEST_GamePhaseChange");
         GamePhaseManager.current.ChangeGamePhase();
     }
 }
