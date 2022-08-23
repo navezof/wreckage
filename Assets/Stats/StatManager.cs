@@ -24,7 +24,7 @@ public class StatManager : MonoBehaviour
     {
         foreach (StatConfiguration configuration in statConfigurationList)
         {
-            statlist.Add(new Stat(configuration.data, configuration.baseValue));
+            statlist.Add(new Stat(this, configuration.data, configuration.baseValue));
         }
     }
 
@@ -35,6 +35,16 @@ public class StatManager : MonoBehaviour
         {            
             stat.DisplayOnConsole();
         }
+    }
+
+    public Stat GetStat(StatData statData)
+    {
+        foreach (Stat stat in statlist)
+        {
+            if (stat.Data == statData)
+                return stat;
+        }
+        return null;
     }
 }
 

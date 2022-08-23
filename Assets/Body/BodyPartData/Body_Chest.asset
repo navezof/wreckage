@@ -15,4 +15,3 @@ MonoBehaviour:
   name: Chest
   woundDataList:
   - {fileID: 11400000, guid: a8a75c9f5dc3543f294735edea3fc162, type: 2}
-  - {fileID: 11400000, guid: 4c0ecc7dea05f41fba2f0e7efe88ca92, type: 2}

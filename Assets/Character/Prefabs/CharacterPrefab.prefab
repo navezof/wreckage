@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2623071468069464275}
   - component: {fileID: 8943106587001153785}
   - component: {fileID: 3191676678560896984}
+  - component: {fileID: -7191866921169544596}
   m_Layer: 0
   m_Name: CharacterPrefab
   m_TagString: Untagged
@@ -62,3 +63,22 @@ MonoBehaviour:
     baseValue: 25
   - data: {fileID: 11400000, guid: 9c9998ecb3895410b947e648eea7a4fc, type: 2}
     baseValue: 2d10+20
+  - data: {fileID: 11400000, guid: 2f6ad16f373694dabb068ff3478e6fdf, type: 2}
+    baseValue: 0
+--- !u!114 &-7191866921169544596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c95c3a0b1134d80afdd6504db81391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEBUG_bodyPartToWound: {fileID: 11400000, guid: f0527af9ad7bf421187ac32dee167c71, type: 2}
+  DEBUG_WoundToRemove: {fileID: 11400000, guid: a8a75c9f5dc3543f294735edea3fc162, type: 2}
+  bodyPartDataList:
+  - {fileID: 11400000, guid: f0527af9ad7bf421187ac32dee167c71, type: 2}
+  - {fileID: 11400000, guid: 09a591293e9044c9ba81cfe7553b0028, type: 2}

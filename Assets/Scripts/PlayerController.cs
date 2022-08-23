@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public event EventHandler OnDisplayCharacter;
     public event EventHandler OnDisplayStats;
     public event EventHandler OnDisplayBody;
+    public event EventHandler OnAddWound;
+    public event EventHandler OnRemoveWound;
 
     private void Awake() 
     {
@@ -33,6 +35,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("d"))
         {
             OnDisplayBody?.Invoke(this, null);
+        }
+        if (Input.GetKeyDown("e"))
+        {
+            Debug.Log("OnAddWound");
+            OnAddWound?.Invoke(this, null);
+        }
+        if (Input.GetKeyDown("f"))
+        {
+            Debug.Log("OnRemoveWound");
+            OnRemoveWound?.Invoke(this, null);
         }
     }
 

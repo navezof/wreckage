@@ -5,20 +5,26 @@ using UnityEngine;
 
 public class Stat
 {
+    private StatManager statManager;
+    private StatData data;
     private string name;
     private string shortName;
     private int baseValue;
 
     private List<StatModifier> statModifierList = new List<StatModifier>();
 
+    public StatManager StatManager { get => statManager; set => statManager = value; }
+    public StatData Data { get => data; }
     public string Name { get => name; }
     public string ShortName { get => shortName; }
     public int BaseValue { get => baseValue; }
 
     public int Value { get => CalculateValue(); }
 
-    public Stat(StatData data, string baseValue)
+    public Stat(StatManager statManager, StatData data, string baseValue)
     {
+        this.statManager = statManager;
+        this.data = data;
         this.name = data.Name;
         this.shortName = data.ShortName;
         if (baseValue == "")
@@ -62,7 +68,7 @@ public class Stat
 
     private void UpdateStatModifiers(object sender, GamePhaseChangeEventArgs e)
     {
-        if (e.newGamePhase.Name == "Status Update")
+        if (e.newGamePhase.Name == EGamePhaseName.STATUS_UPDATE)
         {
             for (int i = statModifierList.Count - 1; i >= 0; i--)
             {

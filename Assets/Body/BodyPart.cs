@@ -8,22 +8,38 @@ public class BodyPart
     private BodyPartData data;
     private BodyManager bodyManager;
 
+    private WoundData[] woundDataList;
     private List<Wound> wounds = new List<Wound>();
 
     public BodyPartData Data { get => data; }
+    public BodyManager BodyManager { get => bodyManager; set => bodyManager = value; }
 
     public BodyPart(BodyManager bodyManager, BodyPartData data)
     {
-        this.bodyManager = bodyManager;
+        this.BodyManager = bodyManager;
 
         this.data = data;
-        this.name = data.name;
+        this.name = data.Name;
+        this.woundDataList = data.WoundDataList;
     }
 
-
-    public Wound AddWound()
+    public void AddWound()
     {
-        return null;
+        int roll = Random.Range(1, woundDataList.Length - 1);
+
+        wounds.Add(new Wound(this, woundDataList[0]));
+    }
+
+    public void RemoveWound(WoundData woundData)
+    {
+        for (int i = wounds.Count - 1; i >= 0; i--)
+        {
+            if (wounds[i].Data == woundData)
+            {
+                wounds[i].UnsubscribeFromEvent();
+                wounds.RemoveAt(i);
+            }
+        }
     }
 
     public void DisplayOnConsole()

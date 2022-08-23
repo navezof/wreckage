@@ -9,6 +9,5 @@ public class BodyPartData : ScriptableObject
     [SerializeField] private WoundData[] woundDataList;
 
     public string Name { get => name; }
-    public WoundData[] WoundDataList { get => woundDataList; }
-    
+    public WoundData[] WoundDataList { get => woundDataList; }    
 }
