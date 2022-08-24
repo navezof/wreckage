@@ -10,6 +10,8 @@ public class StatManager : MonoBehaviour
 
     private List<Stat> statlist = new List<Stat>();
 
+    public List<Stat> Statlist { get => statlist; }
+
     private void OnEnable() 
     {
         PlayerController.current.OnDisplayStats += HandleDisplayOnConsole; 
@@ -24,14 +26,14 @@ public class StatManager : MonoBehaviour
     {
         foreach (StatConfiguration configuration in statConfigurationList)
         {
-            statlist.Add(new Stat(this, configuration.data, configuration.baseValue));
+            Statlist.Add(new Stat(this, configuration.data, configuration.baseValue));
         }
     }
 
     private void HandleDisplayOnConsole(object sender, EventArgs e)
     {
         Debug.Log(name + " > Stats:");
-        foreach (Stat stat in statlist)
+        foreach (Stat stat in Statlist)
         {            
             stat.DisplayOnConsole();
         }
@@ -39,7 +41,7 @@ public class StatManager : MonoBehaviour
 
     public Stat GetStat(StatData statData)
     {
-        foreach (Stat stat in statlist)
+        foreach (Stat stat in Statlist)
         {
             if (stat.Data == statData)
                 return stat;

@@ -7,6 +7,8 @@ public class GearManager : MonoBehaviour
     [SerializeField] private GearSlotListData[] gearSlotListDataList;
     private List<GearSlot> gearSlotlist = new List<GearSlot>();
 
+    public List<GearSlot> GearSlotlist { get => gearSlotlist; }
+
     void Start()
     {
         foreach (GearSlotListData gearSlotListData in gearSlotListDataList)
@@ -14,14 +16,14 @@ public class GearManager : MonoBehaviour
             Debug.Log("Createing inventory: " + gearSlotListData.Name);      
             foreach (GearSlotData gearSlotData in gearSlotListData.GearSlotDataList)
             {
-                gearSlotlist.Add(new GearSlot(this, gearSlotListData, gearSlotData));
+                GearSlotlist.Add(new GearSlot(this, gearSlotListData, gearSlotData));
             }
         }
     }
 
     public GearSlot GetFirstEmptyGearSlot()
     {
-        foreach (GearSlot gearSlot in gearSlotlist)
+        foreach (GearSlot gearSlot in GearSlotlist)
         {
             if (gearSlot.Gear == null)
                 return gearSlot;
@@ -31,7 +33,7 @@ public class GearManager : MonoBehaviour
 
     public GearSlot GetFirstEmptyGearSlot(BodyPartData bodyPartData)
     {
-        foreach (GearSlot gearSlot in gearSlotlist)
+        foreach (GearSlot gearSlot in GearSlotlist)
         {
             if (gearSlot.Gear == null && gearSlot.LinkedBodypart == bodyPartData)
                 return gearSlot;
@@ -41,7 +43,7 @@ public class GearManager : MonoBehaviour
 
     public Gear GetGear(GearData gearData)
     {
-        foreach (GearSlot gearSlot in gearSlotlist)
+        foreach (GearSlot gearSlot in GearSlotlist)
         {
             if (gearSlot.Gear.Data == gearData)
                 return gearSlot.Gear;
@@ -51,7 +53,7 @@ public class GearManager : MonoBehaviour
 
     public Gear GetGear(BodyPartData bodyPartData)
     {
-        foreach (GearSlot gearSlot in gearSlotlist)
+        foreach (GearSlot gearSlot in GearSlotlist)
         {
             if (gearSlot.LinkedBodypart == bodyPartData)
                 return gearSlot.Gear;
@@ -63,7 +65,7 @@ public class GearManager : MonoBehaviour
     {
         List<GearSlot> gearSlotList = new List<GearSlot>();
 
-        foreach (GearSlot gearSlot in gearSlotlist)
+        foreach (GearSlot gearSlot in GearSlotlist)
         {
             if (gearSlot.GearSlotListData == gearSlotListData)
                 gearSlotList.Add(gearSlot);

@@ -6,4 +6,6 @@ using UnityEngine;
 public class GearData : ScriptableObject
 {
     [SerializeField] private new string name;
+
+    public string Name { get => name; }
 }

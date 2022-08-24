@@ -37,6 +37,7 @@ public class BodyPart
             if (wounds[i].Data == woundData)
             {
                 wounds[i].UnsubscribeFromEvent();
+                wounds[i].RemoveWoundModifier();
                 wounds.RemoveAt(i);
             }
         }

@@ -12,6 +12,7 @@ public class ConditionManager : MonoBehaviour
     private List<Condition> conditionList = new List<Condition>();
 
     public StatManager StatManager { get => statManager; }
+    public List<Condition> ConditionList { get => conditionList; }
 
     private void OnEnable()
     {
@@ -28,13 +29,13 @@ public class ConditionManager : MonoBehaviour
         statManager = GetComponent<StatManager>();
 
         foreach (ConditionData conditionData in conditionDataList)
-            conditionList.Add(new Condition(this, conditionData));
+            ConditionList.Add(new Condition(this, conditionData));
     }
 
     public void DisplayOnConsole(object sender, EventArgs e)
     {
         Debug.Log("<" + name + ">: Conditions:");
-        foreach (Condition condition in conditionList)
+        foreach (Condition condition in ConditionList)
         {
             condition.DisplayOnConsole();
         }

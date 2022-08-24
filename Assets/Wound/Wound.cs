@@ -42,13 +42,13 @@ public class Wound
         GamePhaseManager.current.OnGamePhaseChanged -= ApplyWoundChangePerTurn;
     }
 
-    private void ApplyWoundModifier()
+    public void ApplyWoundModifier()
     {
         foreach (WoundModifier woundModifier in woundModifierList)
-            statManager.GetStat(woundModifier.statToTarget)?.AddModifier(woundModifier.change, 99, this, this.name + " (wound)");            
+            statManager.GetStat(woundModifier.statToTarget)?.AddModifier(woundModifier.change, 99, this, this.name);            
     }
 
-    private void RemoveWoundModifier()
+    public void RemoveWoundModifier()
     {
         foreach (WoundModifier woundModifier in woundModifierList)
             statManager.GetStat(woundModifier.statToTarget)?.RemoveAllModifiersFromSource(this);            
@@ -63,7 +63,7 @@ public class Wound
             return ;
 
         foreach (WoundModifier woundChangePerTurn in woundChangePerTurnList)
-            statManager.GetStat(woundChangePerTurn.statToTarget)?.AddModifier(woundChangePerTurn.change, 99, this, this.name + " (woundChangePerTurn)");
+            statManager.GetStat(woundChangePerTurn.statToTarget)?.AddModifier(woundChangePerTurn.change, 99, this, this.name);
     }
     
     public void DisplayOnConsole()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class GearSlot
     private BodyPartData linkedBodypart;
 
     private Gear gear;
+
+    public event EventHandler<GearSlotChangedEventArgs> OnGearSlotChanged;
 
     public GearSlotListData GearSlotListData { get => gearSlotListData; set => gearSlotListData = value; }
     public GearSlotData Data { get => data; }
@@ -36,10 +39,19 @@ public class GearSlot
     public void AddGear(Gear gear)
     {
         this.gear = gear;
+
+        OnGearSlotChanged?.Invoke(this, new GearSlotChangedEventArgs{
+            gearSlot = this
+        });
     }
 
     public void RemoveGear()
     {
         this.gear = null;
     }
+}
+
+public class GearSlotChangedEventArgs : EventArgs
+{
+    public GearSlot gearSlot;
 }

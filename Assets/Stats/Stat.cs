@@ -20,8 +20,9 @@ public class Stat
     public string Name { get => name; }
     public string ShortName { get => shortName; }
     public int BaseValue { get => baseValue; }
-
     public int Value { get => CalculateValue(); }
+
+    public List<StatModifier> StatModifierList { get => statModifierList; }
 
     public Stat(StatManager statManager, StatData data, string baseValue)
     {
@@ -63,7 +64,7 @@ public class Stat
     {
         int value = BaseValue;
 
-        foreach (StatModifier statModifier in statModifierList)
+        foreach (StatModifier statModifier in StatModifierList)
             value += statModifier.Value;
         return value;
     }
@@ -72,17 +73,17 @@ public class Stat
     {
         if (e.newGamePhase.Name == EGamePhaseName.STATUS_UPDATE)
         {
-            for (int i = statModifierList.Count - 1; i >= 0; i--)
+            for (int i = StatModifierList.Count - 1; i >= 0; i--)
             {
-                if (statModifierList[i].Update())
-                    statModifierList.RemoveAt(i);
+                if (StatModifierList[i].Update())
+                    StatModifierList.RemoveAt(i);
             }
         }
     }
 
     public void AddModifier(int value, int duration, object source, string description)
     {
-        statModifierList.Add(new StatModifier(value, duration, source, description));
+        StatModifierList.Add(new StatModifier(value, duration, source, description));
         
         OnStatChanged?.Invoke(this, new StatChangedEventArgs{
             stat = this
@@ -91,28 +92,33 @@ public class Stat
 
     public void RemoveModifier(StatModifier statModifier)
     {
-        statModifierList.Remove(statModifier);
+        StatModifierList.Remove(statModifier);
+
+        OnStatChanged?.Invoke(this, new StatChangedEventArgs{
+            stat = this
+        });
     }
 
-    public bool RemoveAllModifiersFromSource(object source)
+    public void RemoveAllModifiersFromSource(object source)
     {
-        bool didRemove = false;
-
-        for (int i = statModifierList.Count - 1; i >= 0; i--)
+        Debug.Log("RemoveAllModifiersFromSource");
+        for (int i = StatModifierList.Count - 1; i >= 0; i--)
         {
-            if (statModifierList[i].Source == source)
+            if (StatModifierList[i].Source == source)
             {
-                didRemove = true;
-                statModifierList.RemoveAt(i);
+                StatModifierList.RemoveAt(i);
             }
         }
-        return didRemove;
+
+        OnStatChanged?.Invoke(this, new StatChangedEventArgs{
+            stat = this
+        });
     }
 
     public void DisplayOnConsole()
     {
         Debug.Log("- " + Name + " (" + ShortName + ") " + Value);
-        foreach (StatModifier statModifier in statModifierList)
+        foreach (StatModifier statModifier in StatModifierList)
         {
             statModifier.DisplayOnConsole();
         }

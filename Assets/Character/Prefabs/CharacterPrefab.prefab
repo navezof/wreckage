@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DEBUG_bodyPartToWound: {fileID: 11400000, guid: f0527af9ad7bf421187ac32dee167c71, type: 2}
-  DEBUG_WoundToRemove: {fileID: 11400000, guid: a8a75c9f5dc3543f294735edea3fc162, type: 2}
+  DEBUG_WoundToRemove: {fileID: 11400000, guid: bdfffd786b42b4240add215bb1d89781, type: 2}
   bodyPartDataList:
   - {fileID: 11400000, guid: f0527af9ad7bf421187ac32dee167c71, type: 2}
   - {fileID: 11400000, guid: 09a591293e9044c9ba81cfe7553b0028, type: 2}

@@ -27,30 +27,30 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown("b"))
         {
-            OnDisplayCharacter?.Invoke(this, null);
+            OnDisplayCharacter?.Invoke(this, EventArgs.Empty);
         }
         if (Input.GetKeyDown("c"))
         {
-            OnDisplayStats?.Invoke(this, null);
+            OnDisplayStats?.Invoke(this, EventArgs.Empty);
         }
         if (Input.GetKeyDown("d"))
         {
-            OnDisplayBody?.Invoke(this, null);
+            OnDisplayBody?.Invoke(this, EventArgs.Empty);
         }
         if (Input.GetKeyDown("e"))
         {
             Debug.Log("OnAddWound");
-            OnAddWound?.Invoke(this, null);
+            OnAddWound?.Invoke(this, EventArgs.Empty);
         }
         if (Input.GetKeyDown("f"))
         {
             Debug.Log("OnRemoveWound");
-            OnRemoveWound?.Invoke(this, null);
+            OnRemoveWound?.Invoke(this, EventArgs.Empty);
         }
         if (Input.GetKeyDown("g"))
         {
             Debug.Log("OnDisplayConditions");
-            OnDisplayConditions?.Invoke(this, null);
+            OnDisplayConditions?.Invoke(this, EventArgs.Empty);
         }
     }
 
