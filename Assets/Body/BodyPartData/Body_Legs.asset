@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Legs
   woundDataList:
-  - {fileID: 11400000, guid: 89b239b4893ab4a8dbd1913a4607ae1d, type: 2}
-  - {fileID: 11400000, guid: da0967c414d62425ab5b3dfec70c54fc, type: 2}
+  - {fileID: 11400000, guid: bdfffd786b42b4240add215bb1d89781, type: 2}

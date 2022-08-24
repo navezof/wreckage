@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a97b1a03b60d4f16a6c58b426fcbf63, type: 3}
   m_Name: StatusUpdate
   m_EditorClassIdentifier: 
-  name: Status Update
+  name: 1
   nextPhaseData: {fileID: 11400000, guid: 7deeb29c8fff446409b642a13d768b34, type: 2}

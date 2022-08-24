@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Chest
   woundDataList:
-  - {fileID: 11400000, guid: a8a75c9f5dc3543f294735edea3fc162, type: 2}
+  - {fileID: 11400000, guid: bdfffd786b42b4240add215bb1d89781, type: 2}

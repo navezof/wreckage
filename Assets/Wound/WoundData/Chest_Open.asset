@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f2169dbe4f4b99918b4d15e4a8336, type: 3}
-  m_Name: Wound_Chest_Open
+  m_Script: {fileID: 11500000, guid: 6e8707001dea1443ea9ef426e9ef763c, type: 3}
+  m_Name: Chest_Open
   m_EditorClassIdentifier: 
-  name: Chest open
+  name: Open Chest
   woundModifierList:
   - statToTarget: {fileID: 11400000, guid: 0ddc5ad9746244722af5372f3edd38ef, type: 2}
-    change: -5
+    change: -20
   - statToTarget: {fileID: 11400000, guid: 2f6ad16f373694dabb068ff3478e6fdf, type: 2}
-    change: 10
+    change: 30
   woundChangePerTurnList:
   - statToTarget: {fileID: 11400000, guid: 2f6ad16f373694dabb068ff3478e6fdf, type: 2}
-    change: 5
+    change: 10
   healingDifficulty: 0

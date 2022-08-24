@@ -13,6 +13,8 @@ public class Stat
 
     private List<StatModifier> statModifierList = new List<StatModifier>();
 
+    public event EventHandler<StatChangedEventArgs> OnStatChanged;
+
     public StatManager StatManager { get => statManager; set => statManager = value; }
     public StatData Data { get => data; }
     public string Name { get => name; }
@@ -81,6 +83,10 @@ public class Stat
     public void AddModifier(int value, int duration, object source, string description)
     {
         statModifierList.Add(new StatModifier(value, duration, source, description));
+        
+        OnStatChanged?.Invoke(this, new StatChangedEventArgs{
+            stat = this
+        });
     }
 
     public void RemoveModifier(StatModifier statModifier)
@@ -111,4 +117,9 @@ public class Stat
             statModifier.DisplayOnConsole();
         }
     }
+}
+
+public class StatChangedEventArgs : EventArgs
+{
+    public Stat stat;
 }

@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f2169dbe4f4b99918b4d15e4a8336, type: 3}
-  m_Name: Wound_Leg_Broken
+  m_Script: {fileID: 11500000, guid: f483db6afe73d4be49208819a8f1b1df, type: 3}
+  m_Name: Condition_Dead
   m_EditorClassIdentifier: 
-  name: Broken leg
+  name: Dead
+  statToMonitorList:
+  - statToMonitor: {fileID: 11400000, guid: 2f6ad16f373694dabb068ff3478e6fdf, type: 2}
+    statComparator: 0
+    thresholdValue: 75
