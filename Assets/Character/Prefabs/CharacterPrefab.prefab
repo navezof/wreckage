@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3191676678560896984}
   - component: {fileID: -7191866921169544596}
   - component: {fileID: -1062451173074113510}
+  - component: {fileID: 1320839327506963442}
   m_Layer: 0
   m_Name: CharacterPrefab
   m_TagString: Untagged
@@ -97,3 +98,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditionDataList:
   - {fileID: 11400000, guid: b790c916b45be4dbbbd8ec8ea062a6a0, type: 2}
+--- !u!114 &1320839327506963442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741be9b05d3834c3482e70f710a3ed76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearSlotListDataList:
+  - {fileID: 11400000, guid: 79610fd67982a4d2b98e41b236db35e2, type: 2}
+  - {fileID: 11400000, guid: 1777e4da37c5349fba4f2d9711fc562c, type: 2}
