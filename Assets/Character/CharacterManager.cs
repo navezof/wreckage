@@ -10,6 +10,10 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private int playerTeamNumberOfCharacter;
     [SerializeField] private int AITeamNumberOfCharacter;    
 
+    private List<Character> characterList = new List<Character>();
+
+    public List<Character> CharacterList { get => characterList;}
+
     public EventHandler<OnTeamMemberCreatedEventArgs> OnTeamMemberCreated;
 
     void Start()
@@ -20,23 +24,47 @@ public class CharacterManager : MonoBehaviour
 
     private void CreateTeamMember(int team, int memberInTeam)
     {
-        Character newCharacter = null;
-
         for (int index = 0; index < memberInTeam; index++)
         {
-            Debug.Log(">>>>>");
+            Character newCharacter = null;
             GameObject newTeamMemberGO = Instantiate(characterPrefab, this.transform);
             newCharacter = newTeamMemberGO.GetComponent<Character>();
             newCharacter.Name = UnityEngine.Random.Range(1, 100).ToString();
+            newCharacter.Team = team;
             newTeamMemberGO.name = newCharacter.Name + "_" + team.ToString();
 
-            Debug.Log(">>>>> " + newCharacter.Name + " <<>>> " + newTeamMemberGO.name);
+            characterList.Add(newCharacter);
 
             OnTeamMemberCreated?.Invoke(this, new OnTeamMemberCreatedEventArgs
             {
                 character = newCharacter
             });
         }
+    }
+
+    public Character GetCharacter(int teamNumber)
+    {
+        foreach (Character character in characterList)
+        {
+            if (character.Team == teamNumber)
+                return character;
+        }
+        return null;
+    }
+
+    public Character GetCharacter(int teamNumberToGet, int indexToGet)
+    {
+        int index = 0;
+        foreach (Character character in characterList)
+        {
+            if (character.Team == teamNumberToGet)
+            {
+                if (index == indexToGet)
+                    return character;
+                index++;
+            }     
+        }
+        return null;
     }
 }
 

@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     static public PlayerController current;
+    
     public event EventHandler OnDisplayCharacter;
     public event EventHandler OnDisplayStats;
     public event EventHandler OnDisplayBody;
