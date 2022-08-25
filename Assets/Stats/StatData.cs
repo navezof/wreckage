@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StatData", menuName = "Character/Stat")]
+[CreateAssetMenu(fileName = "StatData", menuName = "Stat")]
 public class StatData : ScriptableObject
 {
     [SerializeField] private new string name;

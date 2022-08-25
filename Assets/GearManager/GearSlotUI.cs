@@ -31,7 +31,12 @@ public class GearSlotUI : MonoBehaviour
         string text = " - ";
         if (gearSlot.Gear != null)
         {
-            text += gearSlot.Gear.Name;
+            text += gearSlot.Gear.Name + "( ";
+            foreach (Stat stat in gearSlot.Gear.StatManager.Statlist)
+            {
+                text += stat.ShortName + stat.Value + "; ";
+            }
+            text += ")";
         }
         gearText.text = gearSlot.LinkedBodypart?.Name + text;
     }

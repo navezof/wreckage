@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gear
+public class Gear : MonoBehaviour
 {
-    private string name;
     private GearData data;
+
+    private new string name;
+    private StatManager statManager;    
+    private BodyPartData bodyPartData;
 
     public GearData Data { get => data; }
     public string Name { get => name; }
+    public StatManager StatManager { get => statManager; }
+    public BodyPartData BodyPartData { get => bodyPartData; }
 
-    public Gear(GearData data)
+    public void Initialize(GearData data)
     {
         this.data = data;
         this.name = data.Name;
-    }
+        this.bodyPartData = data.BodyPartData;
+
+        this.statManager = GetComponent<StatManager>();
+        this.statManager.LoadConfigurationList(data.StatConfigurationList);
+    } 
 }

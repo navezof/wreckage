@@ -581,6 +581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GearManagerUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6198931382421284615, guid: 33693e623f31a438aa7c5da1956acbac, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7697338573581897872, guid: 33693e623f31a438aa7c5da1956acbac, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

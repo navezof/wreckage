@@ -24,9 +24,18 @@ public class StatManager : MonoBehaviour
 
     private void Start() 
     {
+        LoadConfigurationList(statConfigurationList);
+    }
+
+    public void LoadConfigurationList(StatConfiguration[] statConfigurationList)
+    {
+        if (this.statConfigurationList != statConfigurationList)
+            this.statConfigurationList = statConfigurationList;
+
         foreach (StatConfiguration configuration in statConfigurationList)
         {
-            Statlist.Add(new Stat(this, configuration.data, configuration.baseValue));
+            if (GetStat(configuration.data) == null)
+                statlist.Add(new Stat(this, configuration.data, configuration.baseValue));
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WoundData", menuName = "Wound")]
+[CreateAssetMenu(fileName = "Wound_", menuName = "Wound")]
 public class WoundData : ScriptableObject
 {
     [SerializeField] private new string name;

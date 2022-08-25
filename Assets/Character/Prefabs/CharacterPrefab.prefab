@@ -110,6 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741be9b05d3834c3482e70f710a3ed76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GearPrefab: {fileID: 8467132638529327342, guid: 009673727a85f4a40ab4fd1af7ace95a, type: 3}
+  startingGear1: {fileID: 11400000, guid: 4f428dac870f24abf8e270b7da210de6, type: 2}
+  startingGear2: {fileID: 11400000, guid: c6ecdfc0aabb04b8ba33bdba95786e28, type: 2}
+  startingGear3: {fileID: 11400000, guid: 9e094655925474900b2ecb42ff39db37, type: 2}
   gearSlotListDataList:
   - {fileID: 11400000, guid: 79610fd67982a4d2b98e41b236db35e2, type: 2}
   - {fileID: 11400000, guid: 1777e4da37c5349fba4f2d9711fc562c, type: 2}

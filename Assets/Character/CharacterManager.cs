@@ -8,7 +8,7 @@ public class CharacterManager : MonoBehaviour
 {
     [SerializeField] private GameObject characterPrefab;
     [SerializeField] private int playerTeamNumberOfCharacter;
-    [SerializeField] private int AITeamNumberOfCharacter;
+    [SerializeField] private int AITeamNumberOfCharacter;    
 
     public EventHandler<OnTeamMemberCreatedEventArgs> OnTeamMemberCreated;
 
@@ -24,10 +24,13 @@ public class CharacterManager : MonoBehaviour
 
         for (int index = 0; index < memberInTeam; index++)
         {
+            Debug.Log(">>>>>");
             GameObject newTeamMemberGO = Instantiate(characterPrefab, this.transform);
             newCharacter = newTeamMemberGO.GetComponent<Character>();
             newCharacter.Name = UnityEngine.Random.Range(1, 100).ToString();
-            newTeamMemberGO.name = newTeamMemberGO.GetComponent<Character>().Name + "_" + team;
+            newTeamMemberGO.name = newCharacter.Name + "_" + team.ToString();
+
+            Debug.Log(">>>>> " + newCharacter.Name + " <<>>> " + newTeamMemberGO.name);
 
             OnTeamMemberCreated?.Invoke(this, new OnTeamMemberCreatedEventArgs
             {

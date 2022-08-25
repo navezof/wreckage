@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ConditionData", menuName = "Condition")]
+[CreateAssetMenu(fileName = "Condition_", menuName = "Condition")]
 public class ConditionData : ScriptableObject
 {
     [SerializeField] private new string name;

@@ -23,6 +23,7 @@ public class CharacterManagerUI : MonoBehaviour
         GameObject newCharacterUI = Instantiate(characterUIPrefab, this.transform);
         CharacterUI character = newCharacterUI.GetComponent<CharacterUI>();
         character.LinkWithData(e.character);
+        newCharacterUI.name = e.character.Name + "_" + e.character.Team + " (UI)";
     }
     
 }
