@@ -34,7 +34,7 @@ public class StatUI : MonoBehaviour
         string modifiers = "";
         foreach (StatModifier statModifier in stat.StatModifierList)
         {
-            modifiers += " [ " + statModifier.Value + " " + statModifier.Description + " ]";
+            modifiers += " [ " + statModifier.Value + " " + statModifier.Description + " (" + statModifier.Duration +  " ]";
         }
         statText.text = stat.Name + " " + stat.Value + modifiers;
     }

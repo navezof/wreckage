@@ -12,16 +12,6 @@ public class StatManager : MonoBehaviour
 
     public List<Stat> Statlist { get => statlist; }
 
-    private void OnEnable() 
-    {
-        PlayerController.current.OnDisplayStats += HandleDisplayOnConsole; 
-    }
-
-    private void OnDisable() 
-    {
-        PlayerController.current.OnDisplayStats -= HandleDisplayOnConsole; 
-    }
-
     private void Start() 
     {
         LoadConfigurationList(statConfigurationList);
@@ -39,21 +29,28 @@ public class StatManager : MonoBehaviour
         }
     }
 
-    private void HandleDisplayOnConsole(object sender, EventArgs e)
-    {
-        Debug.Log(name + " > Stats:");
-        foreach (Stat stat in Statlist)
-        {            
-            stat.DisplayOnConsole();
-        }
-    }
-
-    public Stat GetStat(StatData statData)
+    public Stat GetStat(StatData statData, bool createIfNotExisting = false)
     {
         foreach (Stat stat in Statlist)
         {
             if (stat.Data == statData)
                 return stat;
+        }
+        return null;
+    }
+
+    static public IStatable GetSource(StatSource statSource, TargetingSystem targetingSystem)
+    {
+        switch (statSource.source)
+        {
+            case ETargetNumberModifierSource.ACTOR:
+                return targetingSystem.Actor;
+            case ETargetNumberModifierSource.ACTOR_GEAR:
+                return targetingSystem.Actor.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart);
+            case ETargetNumberModifierSource.TARGET:
+                return targetingSystem.Target;
+            case ETargetNumberModifierSource.TARGET_GEAR:
+                return targetingSystem.Target.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart);
         }
         return null;
     }
@@ -64,4 +61,12 @@ public struct StatConfiguration
 {
     public StatData data;
     public string baseValue;
+}
+
+[System.Serializable]
+public struct StatSource
+{
+    public StatData data;
+    public ETargetNumberModifierSource source;
+    public BodyPartData linkedBodyPart;
 }

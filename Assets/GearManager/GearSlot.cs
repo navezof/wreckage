@@ -27,8 +27,6 @@ public class GearSlot
         this.data = data;
 
         this.linkedBodypart = data.linkedBodyPart;
-
-        Debug.Log("Created new slot (" + this.linkedBodypart?.Name + ")");
     }
 
     public bool IsValidSlot()

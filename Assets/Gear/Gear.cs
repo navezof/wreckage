@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gear : MonoBehaviour
+public class Gear : MonoBehaviour, IStatable
 {
     private GearData data;
 
@@ -24,4 +24,11 @@ public class Gear : MonoBehaviour
         this.statManager = GetComponent<StatManager>();
         this.statManager.LoadConfigurationList(data.StatConfigurationList);
     } 
+
+    public Stat GetStat(StatData data)
+    {
+        if (statManager == null)
+            statManager = GetComponent<StatManager>();
+        return statManager.GetStat(data);
+    }
 }

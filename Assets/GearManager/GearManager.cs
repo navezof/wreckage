@@ -19,7 +19,6 @@ public class GearManager : MonoBehaviour
     {
         foreach (GearSlotListData gearSlotListData in gearSlotListDataList)
         {
-            Debug.Log("Createing inventory: " + gearSlotListData.Name);
             foreach (GearSlotData gearSlotData in gearSlotListData.GearSlotDataList)
             {
                 GearSlotlist.Add(new GearSlot(this, gearSlotListData, gearSlotData));
@@ -57,9 +56,8 @@ public class GearManager : MonoBehaviour
     {
         GameObject newGear = Instantiate(GearPrefab, this.transform);        
         Gear gear = newGear.GetComponent<Gear>();
-
-        newGear.name = gear.Name;
         gear.Initialize(data);
+        newGear.name = gear.Name;
         return gear;
     }
 

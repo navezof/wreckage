@@ -30,6 +30,8 @@ public class Wound
         ApplyWoundModifier();
 
         SubscribeToEvent();
+
+        Debug.Log("Wound " + name + " is applied to body part " + bodyPart);
     }
 
     public void SubscribeToEvent()
@@ -65,15 +67,4 @@ public class Wound
         foreach (WoundModifier woundChangePerTurn in woundChangePerTurnList)
             statManager.GetStat(woundChangePerTurn.statToTarget)?.AddModifier(woundChangePerTurn.change, 99, this, this.name);
     }
-    
-    public void DisplayOnConsole()
-    {
-        Debug.Log("--- " + name + ", WoundModifier:");
-        foreach(WoundModifier woundModifier in woundModifierList)
-            Debug.Log("---- " + woundModifier.statToTarget + " > " + woundModifier.change);
-                Debug.Log("--- WoundChangePerTurnList:");
-        foreach(WoundModifier woundModifier in woundChangePerTurnList)
-            Debug.Log("---- " + woundModifier.statToTarget + " > " + woundModifier.change);
-    }
-
 }

@@ -15,14 +15,18 @@ public class Condition
 
     public event EventHandler<ConditionChangedEventArgs> OnConditionChanged;
 
-    public bool Active { get => active; }
-    public string Name { get => name; set => name = value; }
 
+    public ConditionData Data { get => data; }
+    public string Name { get => name; }
+
+    public bool Active { get => active; }
+    
+ 
     public Condition(ConditionManager conditionManager, ConditionData data)
     {
         this.conditionManager = conditionManager;
         this.data = data;
-        this.Name = data.name;
+        this.name = data.name;
         this.statToMonitorList = data.StatToMonitorList;
 
         LinkToStat();
@@ -54,11 +58,7 @@ public class Condition
     private void SetActive(bool active)
     {
         if (this.active != active)
-        {
-            Debug.Log("Condition: " + Name + " is now " + active);
             this.active = active;
-        }
-
         OnConditionChanged?.Invoke(this, new ConditionChangedEventArgs{
             condition = this
         });
@@ -88,15 +88,6 @@ public class Condition
                 return false;
         }
         return false;        
-    }
-
-    public void DisplayOnConsole()
-    {
-        Debug.Log("--" + Name);
-        foreach (StatToMonitor statToMonitor in statToMonitorList)
-        {
-            Debug.Log("---" + statToMonitor.statToMonitor + " " + statToMonitor.statComparator + " " + statToMonitor.thresholdValue);
-        }
     }
 }
 

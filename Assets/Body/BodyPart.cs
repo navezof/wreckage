@@ -42,19 +42,4 @@ public class BodyPart
             }
         }
     }
-
-    public void DisplayOnConsole()
-    {
-        Debug.Log("-- " + name);
-        Debug.Log("--> Wound:");
-        foreach (Wound wound in wounds)
-        {
-            wound.DisplayOnConsole();
-        }
-        Debug.Log("--> Potential Wound:");
-        foreach (WoundData woundData in Data.WoundDataList)
-        {
-            Debug.Log("--- " + woundData.Name);
-        }
-    }
 }

@@ -14,16 +14,6 @@ public class ConditionManager : MonoBehaviour
     public StatManager StatManager { get => statManager; }
     public List<Condition> ConditionList { get => conditionList; }
 
-    private void OnEnable()
-    {
-        PlayerController.current.OnDisplayConditions += DisplayOnConsole;
-    }
-
-    private void OnDisable()
-    {
-        PlayerController.current.OnDisplayConditions -= DisplayOnConsole;
-    }
-
     private void Start()
     {
         statManager = GetComponent<StatManager>();
@@ -32,12 +22,13 @@ public class ConditionManager : MonoBehaviour
             ConditionList.Add(new Condition(this, conditionData));
     }
 
-    public void DisplayOnConsole(object sender, EventArgs e)
+    public Condition GetCondition(ConditionData conditionData)
     {
-        Debug.Log("<" + name + ">: Conditions:");
-        foreach (Condition condition in ConditionList)
+        foreach (Condition condition in conditionList)
         {
-            condition.DisplayOnConsole();
+            if (condition.Data == conditionData)
+                return condition;
         }
+        return null;
     }
 }

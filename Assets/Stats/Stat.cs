@@ -32,7 +32,7 @@ public class Stat
         this.shortName = data.ShortName;
         if (baseValue == "")
             this.baseValue = ParseFormulae(data.BaseValue);
-        else 
+        else
             this.baseValue = ParseFormulae(baseValue);
 
         GamePhaseManager.current.OnGamePhaseChanged += UpdateStatModifiers;
@@ -76,7 +76,13 @@ public class Stat
             for (int i = StatModifierList.Count - 1; i >= 0; i--)
             {
                 if (StatModifierList[i].Update())
+                {
                     StatModifierList.RemoveAt(i);
+                    OnStatChanged?.Invoke(this, new StatChangedEventArgs
+                    {
+                        stat = this
+                    });
+                }
             }
         }
     }
@@ -84,8 +90,9 @@ public class Stat
     public void AddModifier(int value, int duration, object source, string description)
     {
         StatModifierList.Add(new StatModifier(value, duration, source, description));
-        
-        OnStatChanged?.Invoke(this, new StatChangedEventArgs{
+
+        OnStatChanged?.Invoke(this, new StatChangedEventArgs
+        {
             stat = this
         });
     }
@@ -94,14 +101,14 @@ public class Stat
     {
         StatModifierList.Remove(statModifier);
 
-        OnStatChanged?.Invoke(this, new StatChangedEventArgs{
+        OnStatChanged?.Invoke(this, new StatChangedEventArgs
+        {
             stat = this
         });
     }
 
     public void RemoveAllModifiersFromSource(object source)
     {
-        Debug.Log("RemoveAllModifiersFromSource");
         for (int i = StatModifierList.Count - 1; i >= 0; i--)
         {
             if (StatModifierList[i].Source == source)
@@ -110,18 +117,10 @@ public class Stat
             }
         }
 
-        OnStatChanged?.Invoke(this, new StatChangedEventArgs{
+        OnStatChanged?.Invoke(this, new StatChangedEventArgs
+        {
             stat = this
         });
-    }
-
-    public void DisplayOnConsole()
-    {
-        Debug.Log("- " + Name + " (" + ShortName + ") " + Value);
-        foreach (StatModifier statModifier in StatModifierList)
-        {
-            statModifier.DisplayOnConsole();
-        }
     }
 }
 

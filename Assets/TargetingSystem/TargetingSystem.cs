@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TargetingSystem : MonoBehaviour
 {
+    public static TargetingSystem current;
+
     private CharacterManager characterManager;
 
     private Character actor = null;
@@ -29,9 +31,11 @@ public class TargetingSystem : MonoBehaviour
 
     void Start()
     {
+        current = this;
+        
         characterManager = GetComponent<CharacterManager>();
 
-        OnTargetingSystemChanged.Invoke(this, new TargetingSystemChanged
+        OnTargetingSystemChanged?.Invoke(this, new TargetingSystemChanged
         {
             actor = this.actor,
             target = this.target
@@ -72,7 +76,7 @@ public class TargetingSystem : MonoBehaviour
             target = characterManager.GetCharacter(1, index);
         }
 
-        OnTargetingSystemChanged.Invoke(this, new TargetingSystemChanged
+        OnTargetingSystemChanged?.Invoke(this, new TargetingSystemChanged
         {
             actor = this.actor,
             target = this.target

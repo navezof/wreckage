@@ -29,9 +29,4 @@ public class StatModifier
             return true;
         return false;
     }
-
-    public void DisplayOnConsole()
-    {
-        Debug.Log("-- " + description + " " + Value + " (" + Duration + ") from " + Source);
-    }
 }
