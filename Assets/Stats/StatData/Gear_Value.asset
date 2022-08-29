@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Value
   shortName: $
   baseValue: 0
+  updatePhaseList: []

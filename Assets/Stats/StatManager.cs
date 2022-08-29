@@ -39,18 +39,18 @@ public class StatManager : MonoBehaviour
         return null;
     }
 
-    static public IStatable GetSource(StatSource statSource, TargetingSystem targetingSystem)
+    static public StatManager GetSource(StatSource statSource, TargetingSystem targetingSystem)
     {
         switch (statSource.source)
         {
             case ETargetNumberModifierSource.ACTOR:
-                return targetingSystem.Actor;
+                return targetingSystem.Actor.GetComponent<StatManager>();
             case ETargetNumberModifierSource.ACTOR_GEAR:
-                return targetingSystem.Actor.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart);
+                return targetingSystem.Actor.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart).GetComponent<StatManager>();
             case ETargetNumberModifierSource.TARGET:
-                return targetingSystem.Target;
+                return targetingSystem.Target.GetComponent<StatManager>();
             case ETargetNumberModifierSource.TARGET_GEAR:
-                return targetingSystem.Target.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart);
+                return targetingSystem.Target.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart).GetComponent<StatManager>();
         }
         return null;
     }

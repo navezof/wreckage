@@ -22,3 +22,4 @@ MonoBehaviour:
   - statToTarget: {fileID: 11400000, guid: 2f6ad16f373694dabb068ff3478e6fdf, type: 2}
     change: 10
   healingDifficulty: 0
+  updatePhaseList: []

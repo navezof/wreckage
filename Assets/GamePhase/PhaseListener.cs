@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PhaseListener : MonoBehaviour
 {
-    [SerializeField] private EGamePhaseName gamePhaseToActivateTo;
+    [SerializeField] private GamePhaseData[] activePhaseDataList;
 
     private void Start()
     {
@@ -23,10 +23,12 @@ public class PhaseListener : MonoBehaviour
 
     private void HandleGamePhaseChanged(object sender, GamePhaseChangeEventArgs e)
     {
-        if (gamePhaseToActivateTo == e.newGamePhase.Name)
-            SetActive(true);
-        else
-            SetActive(false);
+        SetActive(false);
+        foreach (GamePhaseData activePhaseData in activePhaseDataList)
+        {
+            if (activePhaseData == e.currentGamePhase)
+                SetActive(true);
+        }
     }
 
     private void SetActive(bool active)

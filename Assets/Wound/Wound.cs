@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wound
+public class Wound : PhaseBehaviour
 {
     private StatManager statManager;
 
@@ -11,12 +11,13 @@ public class Wound
     private string name;
     private WoundModifier[] woundModifierList;
     private WoundModifier[] woundChangePerTurnList;
+    private GamePhaseData[] activeGamePhasList;
 
     private bool healed = false;
 
     public WoundData Data { get => data; set => data = value; }
 
-    public Wound(BodyPart bodyPart, WoundData data)
+    public Wound(BodyPart bodyPart, WoundData data) : base(data.UpdatePhaseList)
     {        
         this.bodyPart = bodyPart;
         this.Data = data;
@@ -29,20 +30,20 @@ public class Wound
 
         ApplyWoundModifier();
 
-        SubscribeToEvent();
+        // SubscribeToEvent();
 
         Debug.Log("Wound " + name + " is applied to body part " + bodyPart);
     }
 
-    public void SubscribeToEvent()
-    {
-        GamePhaseManager.current.OnGamePhaseChanged += ApplyWoundChangePerTurn;
-    }
+    // public void SubscribeToEvent()
+    // {
+    //     GamePhaseManager.current.OnGamePhaseChanged += ApplyWoundChangePerTurn;
+    // }
 
-    public void UnsubscribeFromEvent()
-    {
-        GamePhaseManager.current.OnGamePhaseChanged -= ApplyWoundChangePerTurn;
-    }
+    // public void UnsubscribeFromEvent()
+    // {
+    //     GamePhaseManager.current.OnGamePhaseChanged -= ApplyWoundChangePerTurn;
+    // }
 
     public void ApplyWoundModifier()
     {
@@ -56,11 +57,23 @@ public class Wound
             statManager.GetStat(woundModifier.statToTarget)?.RemoveAllModifiersFromSource(this);            
     }
 
-    private void ApplyWoundChangePerTurn(object sender, GamePhaseChangeEventArgs e)
-    {
-        if (e.newGamePhase.Name != EGamePhaseName.STATUS_UPDATE)
-            return;
+    
 
+    // private void ApplyWoundChangePerTurn(object sender, GamePhaseChangeEventArgs e)
+    // {
+        
+    //     if (GamePhaseManager.IsActivePhase(e.currentGamePhase, activeGamePhasList))
+    //         return;
+
+    //     if (healed)
+    //         return ;
+
+    //     foreach (WoundModifier woundChangePerTurn in woundChangePerTurnList)
+    //         statManager.GetStat(woundChangePerTurn.statToTarget)?.AddModifier(woundChangePerTurn.change, 99, this, this.name);
+    // }
+
+    protected override void Update()
+    {
         if (healed)
             return ;
 

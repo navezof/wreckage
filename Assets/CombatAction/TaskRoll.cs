@@ -19,7 +19,7 @@ public class TaskRoll : ATask
         else
             result = ETaskResolution.ON_FAILURE;
 
-        Debug.Log(targetingSystem.Actor.Name + "> task: " + name + " Roll " + roll + " against TN " + targetNumber + " resultint in " + result);
+        Debug.Log(targetingSystem.Actor.GetComponent<CombatProfileManager>().GetName() + "> task: " + name + " Roll " + roll + " against TN " + targetNumber + " resultint in " + result);
 
         ExecuteNextTask(result);
     }

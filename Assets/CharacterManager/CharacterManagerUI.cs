@@ -10,20 +10,20 @@ public class CharacterManagerUI : MonoBehaviour
  
     private void OnEnable() 
     {
-        characterManager.OnTeamMemberCreated += OnTeamMemberCreated;    
+        characterManager.OnCharacterCreated += OnTeamMemberCreated;    
     }
 
     private void OnDisable() 
     {
-        characterManager.OnTeamMemberCreated -= OnTeamMemberCreated;
+        characterManager.OnCharacterCreated -= OnTeamMemberCreated;
     }
 
-    public void OnTeamMemberCreated(object sender, OnTeamMemberCreatedEventArgs e)
+    public void OnTeamMemberCreated(object sender, OnCharacterCreatedEventArgs e)
     {
         GameObject newCharacterUI = Instantiate(characterUIPrefab, this.transform);
-        CharacterUI character = newCharacterUI.GetComponent<CharacterUI>();
-        character.LinkWithData(e.character);
-        newCharacterUI.name = e.character.Name + "_" + e.character.Team + " (UI)";
+        CharacterUI characterUI = newCharacterUI.GetComponent<CharacterUI>();
+        characterUI.LinkWithData(e.character);
+
+        newCharacterUI.name = e.character.GetComponent<CombatProfileManager>().GetName() + " (UI)";
     }
-    
 }

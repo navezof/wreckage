@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7141478631291318637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2623071468069464275}
+  - component: {fileID: 8943106587001153785}
+  - component: {fileID: 3191676678560896984}
+  - component: {fileID: -7191866921169544596}
+  - component: {fileID: -1062451173074113510}
+  - component: {fileID: 1320839327506963442}
+  m_Layer: 0
+  m_Name: EwokPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2623071468069464275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8943106587001153785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a439d4eaa10e491282bfdd942930b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3191676678560896984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f651aca540864bdf8ed938774709288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statConfigurationList:
+  - data: {fileID: 11400000, guid: 0ddc5ad9746244722af5372f3edd38ef, type: 2}
+    baseValue: 25
+  - data: {fileID: 11400000, guid: 9c9998ecb3895410b947e648eea7a4fc, type: 2}
+    baseValue: 2d10+20
+  - data: {fileID: 11400000, guid: 2f6ad16f373694dabb068ff3478e6fdf, type: 2}
+    baseValue: 0
+  - data: {fileID: 11400000, guid: c59e9511e89b44ebf964d852905942f9, type: 2}
+    baseValue: 
+--- !u!114 &-7191866921169544596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c95c3a0b1134d80afdd6504db81391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyPartDataList:
+  - {fileID: 11400000, guid: f0527af9ad7bf421187ac32dee167c71, type: 2}
+--- !u!114 &-1062451173074113510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3db3a08addae41eb8594eb82589fa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditionDataList:
+  - {fileID: 11400000, guid: b790c916b45be4dbbbd8ec8ea062a6a0, type: 2}
+--- !u!114 &1320839327506963442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141478631291318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741be9b05d3834c3482e70f710a3ed76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GearPrefab: {fileID: 8467132638529327342, guid: 009673727a85f4a40ab4fd1af7ace95a, type: 3}
+  startingGear1: {fileID: 11400000, guid: 4f428dac870f24abf8e270b7da210de6, type: 2}
+  startingGear2: {fileID: 11400000, guid: c6ecdfc0aabb04b8ba33bdba95786e28, type: 2}
+  startingGear3: {fileID: 11400000, guid: 9e094655925474900b2ecb42ff39db37, type: 2}
+  gearSlotListDataList:
+  - {fileID: 11400000, guid: 79610fd67982a4d2b98e41b236db35e2, type: 2}
+  - {fileID: 11400000, guid: 1777e4da37c5349fba4f2d9711fc562c, type: 2}

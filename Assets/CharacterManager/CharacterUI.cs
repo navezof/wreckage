@@ -6,15 +6,15 @@ public class CharacterUI : MonoBehaviour
 {
     [SerializeField] private TMPro.TMP_Text characterName;
 
-    private Character character;
+    private GameObject character;
 
-    public Character Character { get => character; }
+    public GameObject Character { get => character; }
 
-    public void LinkWithData(Character character)
+    public void LinkWithData(GameObject character)
     {
         this.character = character;
         
-        characterName.text = character.name;
+        characterName.text = character.GetComponent<CombatProfileManager>().GetName();
     }
     
 }

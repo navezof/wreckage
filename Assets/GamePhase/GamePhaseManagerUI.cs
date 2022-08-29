@@ -18,7 +18,7 @@ public class GamePhaseManagerUI : MonoBehaviour
 
     private void HandleOnGamePhaseChanged(object sender, GamePhaseChangeEventArgs e)
     {
-        gamePhaseText.text = e.newGamePhase.Name.ToString();
+        gamePhaseText.text = e.currentGamePhase.Name.ToString();
     }
 
 }

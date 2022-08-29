@@ -14,6 +14,8 @@ public class TargetingSystemUI : MonoBehaviour
     private void OnEnable()
     {
         targetingSystem.OnTargetingSystemChanged += HandleTargetingSystemChanged;
+
+        UpdateInstruction(null, null);
     }
 
     private void OnDisable()
@@ -23,10 +25,15 @@ public class TargetingSystemUI : MonoBehaviour
 
     private void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e)
     {
-        actorText.text = "Actor: " + e.actor?.Name;
-        targetText.text = "Target: " + e.target?.Name;
+        UpdateInstruction(e.actor?.GetComponent<CombatProfileManager>().CombatProfile, e.target?.GetComponent<CombatProfileManager>().CombatProfile);
+    }
 
-        if (e.actor == null)
+    private void UpdateInstruction(CombatProfile actor, CombatProfile target)
+    {
+        actorText.text = "Actor: " + actor?.Name;
+        targetText.text = "Target: " + target?.Name;
+
+        if (actor == null)
         {
             instructionText.text = "Select an actor";
         }

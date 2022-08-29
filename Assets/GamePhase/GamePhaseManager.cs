@@ -22,7 +22,7 @@ public class GamePhaseManager : MonoBehaviour
             gamePhaseList.Add(new GamePhase(gamePhaseData));
 
         OnGamePhaseChanged?.Invoke(this, new GamePhaseChangeEventArgs{
-            newGamePhase = CurrentGamePhase
+            currentGamePhase = CurrentGamePhase.Data
         });
     }
 
@@ -40,7 +40,7 @@ public class GamePhaseManager : MonoBehaviour
         CurrentGamePhase?.Enter();
 
         OnGamePhaseChanged?.Invoke(this, new GamePhaseChangeEventArgs{
-            newGamePhase = CurrentGamePhase
+            currentGamePhase = CurrentGamePhase.Data
         });
     }
 
@@ -58,9 +58,21 @@ public class GamePhaseManager : MonoBehaviour
         }
         return null;
     }
+
+    static public bool IsActivePhase(GamePhaseData currentGamePhase, GamePhaseData[] activeGamePhaseList)
+    {
+        if (activeGamePhaseList.Length == 0)
+            return true;
+        foreach (GamePhaseData activeGamePhase in activeGamePhaseList)
+        {
+            if (currentGamePhase == activeGamePhase)
+                return true;
+        }
+        return false;
+    }
 }
 
 public class GamePhaseChangeEventArgs : EventArgs
 {
-    public GamePhase newGamePhase;
+    public GamePhaseData currentGamePhase;
 }

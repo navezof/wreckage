@@ -20,4 +20,6 @@ MonoBehaviour:
     baseValue: 5
   - data: {fileID: 11400000, guid: 8f8a76ad757874ca08685a14b66fb434, type: 2}
     baseValue: 6
+  - data: {fileID: 11400000, guid: c17b4b14d576f4c5f8014ef2b15072ef, type: 2}
+    baseValue: 12
   bodyPartData: {fileID: 11400000, guid: 09a591293e9044c9ba81cfe7553b0028, type: 2}

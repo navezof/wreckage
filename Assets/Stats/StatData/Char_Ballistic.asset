@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Ballistic
   shortName: BS
   baseValue: 2d10+20
+  updatePhaseList: []

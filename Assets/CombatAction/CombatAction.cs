@@ -22,9 +22,9 @@ public class CombatAction : MonoBehaviour, IStatable
         statManager = GetComponent<StatManager>();
     }
 
-
     private void OnEnable() 
     {
+        targetingSystem = TargetingSystem.current;
         isActive = true;
     }
 
@@ -58,7 +58,8 @@ public class CombatAction : MonoBehaviour, IStatable
 
     private bool CheckActor()
     {
-        if (targetingSystem.Actor == null)
+        
+        if (TargetingSystem.current.Actor == null)
             return false;
         return true;
     }

@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Close Combat
   shortName: CC
   baseValue: 2d10+20
+  updatePhaseList: []

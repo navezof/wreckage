@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Armor Protection
   shortName: Pr
   baseValue: 0
+  updatePhaseList: []

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stat
+public class Stat : PhaseBehaviour
 {
     private StatManager statManager;
     private StatData data;
@@ -24,7 +24,7 @@ public class Stat
 
     public List<StatModifier> StatModifierList { get => statModifierList; }
 
-    public Stat(StatManager statManager, StatData data, string baseValue)
+    public Stat(StatManager statManager, StatData data, string baseValue): base(data.UpdatePhaseList)
     {
         this.statManager = statManager;
         this.data = data;
@@ -34,8 +34,6 @@ public class Stat
             this.baseValue = ParseFormulae(data.BaseValue);
         else
             this.baseValue = ParseFormulae(baseValue);
-
-        GamePhaseManager.current.OnGamePhaseChanged += UpdateStatModifiers;
     }
 
     private int ParseFormulae(string baseValueString)
@@ -69,20 +67,17 @@ public class Stat
         return value;
     }
 
-    private void UpdateStatModifiers(object sender, GamePhaseChangeEventArgs e)
+    protected override void Update()
     {
-        if (e.newGamePhase.Name == EGamePhaseName.STATUS_UPDATE)
+        for (int i = StatModifierList.Count - 1; i >= 0; i--)
         {
-            for (int i = StatModifierList.Count - 1; i >= 0; i--)
+            if (StatModifierList[i].Update())
             {
-                if (StatModifierList[i].Update())
+                StatModifierList.RemoveAt(i);
+                OnStatChanged?.Invoke(this, new StatChangedEventArgs
                 {
-                    StatModifierList.RemoveAt(i);
-                    OnStatChanged?.Invoke(this, new StatChangedEventArgs
-                    {
-                        stat = this
-                    });
-                }
+                    stat = this
+                });
             }
         }
     }
