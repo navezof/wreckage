@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a97b1a03b60d4f16a6c58b426fcbf63, type: 3}
   m_Name: PlayerMoveAction
   m_EditorClassIdentifier: 
-  name: Player Combat Action
-  nextPhaseData: {fileID: 11400000, guid: 5f450456adb964525b8706aa22c63b4d, type: 2}
+  name: Player Move Action
+  nextPhaseData: {fileID: 11400000, guid: 7deeb29c8fff446409b642a13d768b34, type: 2}
