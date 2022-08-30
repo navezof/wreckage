@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown("a"))
         {
-            TEST_GamePhaseChange();
+            NextGamePhase();
         }
     }
 
-    void TEST_GamePhaseChange()
+    void NextGamePhase()
     {
         GamePhaseManager.current.ChangeGamePhase();
     }

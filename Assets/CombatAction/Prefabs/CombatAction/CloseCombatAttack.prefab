@@ -160,6 +160,8 @@ GameObject:
   - component: {fileID: 6934560730748808553}
   - component: {fileID: 6934560730748808550}
   - component: {fileID: 6934560730748808555}
+  - component: {fileID: 1734760732}
+  - component: {fileID: 1734760733}
   m_Layer: 0
   m_Name: CloseCombatAttack
   m_TagString: Untagged
@@ -215,7 +217,7 @@ MonoBehaviour:
   firstTask: {fileID: 6934560729386114054}
   requirementList:
   - {fileID: 0}
-  keyCode: 109
+  gameActionLimiter: {fileID: 0}
 --- !u!114 &6934560730748808555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,4 +230,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f651aca540864bdf8ed938774709288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statConfigurationList: []
+  statConfigurationList:
+  - data: {fileID: 11400000, guid: cd6299ebce7954e17ab10215ad5bf274, type: 2}
+    baseValue: 
+--- !u!114 &1734760732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934560730748808551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee33d9d2c87647a99e833e5f9630435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfActionPerActor: 1
+--- !u!114 &1734760733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934560730748808551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b4430dcfd3b4a7caeab4f5a9f69add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCode: 109

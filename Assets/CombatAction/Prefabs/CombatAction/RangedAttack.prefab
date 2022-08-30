@@ -231,6 +231,8 @@ GameObject:
   - component: {fileID: 4289808036326667898}
   - component: {fileID: 4289808036326667896}
   - component: {fileID: 4289808036326667899}
+  - component: {fileID: 2105388525}
+  - component: {fileID: 2105388526}
   m_Layer: 0
   m_Name: RangedAttack
   m_TagString: Untagged
@@ -288,7 +290,7 @@ MonoBehaviour:
   firstTask: {fileID: 4289808036516644637}
   requirementList:
   - {fileID: 1823031567}
-  keyCode: 114
+  gameActionLimiter: {fileID: 2105388525}
 --- !u!114 &4289808036326667899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +306,32 @@ MonoBehaviour:
   statConfigurationList:
   - data: {fileID: 11400000, guid: cd6299ebce7954e17ab10215ad5bf274, type: 2}
     baseValue: 0
+--- !u!114 &2105388525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289808036326667895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee33d9d2c87647a99e833e5f9630435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfActionPerActor: 1
+--- !u!114 &2105388526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289808036326667895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b4430dcfd3b4a7caeab4f5a9f69add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCode: 114
 --- !u!1 &4289808036516644635
 GameObject:
   m_ObjectHideFlags: 0

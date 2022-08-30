@@ -18,9 +18,9 @@ public class CombatActionUI : MonoBehaviour, IListenToTargetingSystem
         if (!combatAction)
             return ;
         if (combatAction.IsValid())
-            combatActionText.text = "(" + combatAction.KeyCode + ") " + combatAction.name;
+            combatActionText.text = "(" + combatAction.GetComponent<GameActionTriggerKeyCode>()?.KeyCode + ") " + combatAction.name;
         else
-            combatActionText.text = "(" + combatAction.KeyCode + ") " + combatAction.name + " (disabled)";
+            combatActionText.text = "(" + combatAction.GetComponent<GameActionTriggerKeyCode>()?.KeyCode  + ") " + combatAction.name + " (disabled)";
     }
 
     public void LinkToCombatAction(CombatAction combatAction)

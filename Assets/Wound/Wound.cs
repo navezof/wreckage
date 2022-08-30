@@ -30,20 +30,8 @@ public class Wound : PhaseBehaviour
 
         ApplyWoundModifier();
 
-        // SubscribeToEvent();
-
         Debug.Log("Wound " + name + " is applied to body part " + bodyPart);
     }
-
-    // public void SubscribeToEvent()
-    // {
-    //     GamePhaseManager.current.OnGamePhaseChanged += ApplyWoundChangePerTurn;
-    // }
-
-    // public void UnsubscribeFromEvent()
-    // {
-    //     GamePhaseManager.current.OnGamePhaseChanged -= ApplyWoundChangePerTurn;
-    // }
 
     public void ApplyWoundModifier()
     {
@@ -56,21 +44,6 @@ public class Wound : PhaseBehaviour
         foreach (WoundModifier woundModifier in woundModifierList)
             statManager.GetStat(woundModifier.statToTarget)?.RemoveAllModifiersFromSource(this);            
     }
-
-    
-
-    // private void ApplyWoundChangePerTurn(object sender, GamePhaseChangeEventArgs e)
-    // {
-        
-    //     if (GamePhaseManager.IsActivePhase(e.currentGamePhase, activeGamePhasList))
-    //         return;
-
-    //     if (healed)
-    //         return ;
-
-    //     foreach (WoundModifier woundChangePerTurn in woundChangePerTurnList)
-    //         statManager.GetStat(woundChangePerTurn.statToTarget)?.AddModifier(woundChangePerTurn.change, 99, this, this.name);
-    // }
 
     protected override void Update()
     {

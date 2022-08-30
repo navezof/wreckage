@@ -37,8 +37,6 @@ public class CombatProfileManager : MonoBehaviour
 
     public void SetTeam(int team)
     {
-        if (CombatProfile == null)
-            Debug.Log("Set team null");
         CombatProfile.Team = team;
     }
 }
