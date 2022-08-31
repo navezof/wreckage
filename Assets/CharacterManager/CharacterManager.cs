@@ -7,8 +7,6 @@ using UnityEngine.Events;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] characterPrefabList;
-    [SerializeField] private int playerTeamNumberOfCharacter;
-    [SerializeField] private int AITeamNumberOfCharacter;    
 
     private List<GameObject> characterList = new List<GameObject>();
 
@@ -16,7 +14,7 @@ public class CharacterManager : MonoBehaviour
 
     public EventHandler<OnCharacterCreatedEventArgs> OnCharacterCreated;
 
-    void Start()
+    void Awake()
     {
         CreateCharacters();
     }

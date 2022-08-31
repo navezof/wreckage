@@ -5,15 +5,14 @@ using UnityEngine;
 public class RequirementHasGear : ARequirement
 {
     [SerializeField] GearData gearToHave;
-    private GearManager gearManager;
-
-    public override void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e)
-    {
-        gearManager = e.actor.GetComponent<GearManager>();
-    }
 
     public override bool IsMet()
     {
+        GearManager gearManager = SelectorManager.current.First.GetComponent<GearManager>();
+
+        if (gearManager == null)
+            return false;
+            
         Gear gear = gearManager.GetGear(gearToHave);
         if (gear != null)
             return true;

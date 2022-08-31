@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class ListenerTargetingSystem : MonoBehaviour
 {
-    public void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e)
+    public void HandleTargetingSystemChanged(GameObject first, GameObject second)
     {
         IListenToTargetingSystem[] listenerList = GetComponents<IListenToTargetingSystem>();
         foreach (IListenToTargetingSystem listener in listenerList)
         {
-            listener.HandleTargetingSystemChanged(sender, e);
+            listener.HandleTargetingSystemChanged(first, second);
         }
     }
 
     private void OnEnable()
     {
-        TargetingSystem.current.OnTargetingSystemChanged += HandleTargetingSystemChanged;
+        SelectorManager.current.OnSelectorChange += HandleTargetingSystemChanged;
+        // TargetingSystem.current.OnTargetingSystemChanged += HandleTargetingSystemChanged;
     }
 
     private void OnDisable()
     {
-        TargetingSystem.current.OnTargetingSystemChanged -= HandleTargetingSystemChanged;
+        SelectorManager.current.OnSelectorChange -= HandleTargetingSystemChanged;
+        // TargetingSystem.current.OnTargetingSystemChanged -= HandleTargetingSystemChanged;
     }
 }
 
 public interface IListenToTargetingSystem
 {
-    public void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e);
+    public void HandleTargetingSystemChanged(GameObject first, GameObject second);
+    // public void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e);
 }

@@ -19,7 +19,7 @@ public class TaskRoll : ATask
         else
             result = ETaskResolution.ON_FAILURE;
 
-        Debug.Log(targetingSystem.Actor.GetComponent<CombatProfileManager>().GetName() + "> task: " + name + " Roll " + roll + " against TN " + targetNumber + " resultint in " + result);
+        Debug.Log(selectorManager.First.GetComponent<CombatProfileManager>().GetName() + "> task: " + name + " Roll " + roll + " against TN " + targetNumber + " resultint in " + result);
 
         ExecuteNextTask(result);
     }
@@ -31,8 +31,8 @@ public class TaskRoll : ATask
         {
             int value = 0;
 
-            if (rollModifier.source.data != null && StatManager.GetSource(rollModifier.source, targetingSystem) != null)
-                value += StatManager.GetSource(rollModifier.source, targetingSystem).GetStat(rollModifier.source.data).Value;
+            if (rollModifier.source.data != null && StatManager.GetSource(rollModifier.source, selectorManager) != null)
+                value += StatManager.GetSource(rollModifier.source, selectorManager).GetStat(rollModifier.source.data).Value;
 
             value += rollModifier.flatValue;
             if (rollModifier.statOperator == EStatOperator.ADD)

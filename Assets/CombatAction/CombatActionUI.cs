@@ -29,7 +29,7 @@ public class CombatActionUI : MonoBehaviour, IListenToTargetingSystem
         UpdateText();
     }
 
-    public void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e)
+    public void HandleTargetingSystemChanged(GameObject first, GameObject second)
     {
         UpdateText();
     }

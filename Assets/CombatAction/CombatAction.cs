@@ -11,7 +11,6 @@ public class CombatAction : MonoBehaviour, IStatable
     [SerializeField] private AGameActionLimiter gameActionLimiter;
 
     private StatManager statManager;
-    private TargetingSystem targetingSystem;
 
     public string Name { get => name; }
 
@@ -31,6 +30,8 @@ public class CombatAction : MonoBehaviour, IStatable
 
             firstTask.InitializeTask(this);
             firstTask.Execute();
+
+            SelectorManager.current.Reset();
 
             OnGameActionEnd?.Invoke(this, EventArgs.Empty);
         }

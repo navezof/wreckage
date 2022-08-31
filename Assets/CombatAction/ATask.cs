@@ -8,7 +8,7 @@ public abstract class ATask : MonoBehaviour
     [SerializeField] protected NextTask[] nextTaskList;
 
     protected CombatAction combatAction;
-    protected TargetingSystem targetingSystem;
+    protected SelectorManager selectorManager;
 
     public abstract void Execute();
 
@@ -16,7 +16,7 @@ public abstract class ATask : MonoBehaviour
     {
         this.combatAction = combatAction;
         
-        targetingSystem = TargetingSystem.current;
+        selectorManager = SelectorManager.current;
     }
 
     protected void ExecuteNextTask(ETaskResolution taskResolution)

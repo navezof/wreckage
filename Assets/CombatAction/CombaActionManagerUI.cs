@@ -8,10 +8,10 @@ public class CombaActionManagerUI : MonoBehaviour
 
     private CombatAction[] combatActionList;
 
-    // Start is called before the first frame update
     void Start()
     {
         combatActionList = FindObjectsOfType<CombatAction>();
+
         foreach (CombatAction combatAction in combatActionList)
         {
             GameObject newCombatActionUI = Instantiate(combatActionUIPrefab, this.transform);            

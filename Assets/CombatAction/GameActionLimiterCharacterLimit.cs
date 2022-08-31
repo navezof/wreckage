@@ -18,7 +18,7 @@ public class GameActionLimiterCharacterLimit : AGameActionLimiter
 
     public override bool IsLimited()
     {
-        if (ActorIsLimited(TargetingSystem.current.Actor))
+        if (ActorIsLimited(SelectorManager.current.First))
         {
             return false;
         }
@@ -27,12 +27,12 @@ public class GameActionLimiterCharacterLimit : AGameActionLimiter
 
     protected override void OnGameActionStart(object sender, EventArgs e)
     {
-        ;
+        UpdateActionPerActorList(SelectorManager.current.First);
     }
 
     protected override void OnGameActionEnd(object sender, EventArgs e)
     {
-        UpdateActionPerActorList(TargetingSystem.current.Actor);
+        ;
     }
 
     private bool ActorIsLimited(GameObject actor)

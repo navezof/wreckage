@@ -8,7 +8,9 @@ public class TaskRollHitLocation : ATask
 
     public override void Execute()
     {
-        BodyManager bodyManager = targetingSystem.Target.GetComponent<BodyManager>();
+        BodyManager bodyManager = selectorManager.Second.GetComponent<BodyManager>();
+        if (bodyManager == null)
+            return;
 
         int roll = Random.Range(0, bodyManager.BodyPartList.Count - 1);
 

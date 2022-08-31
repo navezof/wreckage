@@ -12,9 +12,4 @@ public class RequirementIsGamePhase : ARequirement
             return false;
         return true;
     }
-
-    public override void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e)
-    {
-        return ;
-    }
 }

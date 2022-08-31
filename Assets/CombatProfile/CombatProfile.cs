@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatProfile : PhaseBehaviour
+public class CombatProfile : PhaseBehaviour, IDisplayable
 {
     private string name;
     private int team;
@@ -23,5 +23,10 @@ public class CombatProfile : PhaseBehaviour
     protected override void Update()
     {
         this.hasActedThisTurn = false;        
+    }
+
+    public string GetDisplayString()
+    {
+        return name;
     }
 }

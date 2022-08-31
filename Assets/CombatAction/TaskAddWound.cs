@@ -7,8 +7,11 @@ public class TaskAddWound : ATask
     [SerializeField] private StatData hitLocationStatData;
 
     public override void Execute()
-    {
-        BodyManager bodyManager = targetingSystem.Target.GetComponent<BodyManager>();
+    {   
+        BodyManager bodyManager = SelectorManager.current.Second.GetComponent<BodyManager>();        
+        if (bodyManager == null)
+            return ;
+
         BodyPart bodyPartWounded = bodyManager.GetBodyPart(combatAction.GetStat(hitLocationStatData).Value);
         bodyPartWounded.AddWound();
     }

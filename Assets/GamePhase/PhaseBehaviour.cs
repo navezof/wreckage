@@ -31,3 +31,8 @@ public abstract class PhaseBehaviour
 
     protected abstract void Update();
 }
+
+public interface IDisplayable
+{
+    public string GetDisplayString();
+}

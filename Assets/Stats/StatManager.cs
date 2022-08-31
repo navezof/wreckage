@@ -39,18 +39,18 @@ public class StatManager : MonoBehaviour
         return null;
     }
 
-    static public StatManager GetSource(StatSource statSource, TargetingSystem targetingSystem)
+    static public StatManager GetSource(StatSource statSource, SelectorManager selectorManager)
     {
         switch (statSource.source)
         {
             case ETargetNumberModifierSource.ACTOR:
-                return targetingSystem.Actor.GetComponent<StatManager>();
+                return selectorManager.First.GetComponent<StatManager>();
             case ETargetNumberModifierSource.ACTOR_GEAR:
-                return targetingSystem.Actor.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart).GetComponent<StatManager>();
+                return selectorManager.First.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart).GetComponent<StatManager>();
             case ETargetNumberModifierSource.TARGET:
-                return targetingSystem.Target.GetComponent<StatManager>();
+                return selectorManager.Second.GetComponent<StatManager>();
             case ETargetNumberModifierSource.TARGET_GEAR:
-                return targetingSystem.Target.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart).GetComponent<StatManager>();
+                return selectorManager.Second.GetComponent<GearManager>().GetGear(statSource.linkedBodyPart).GetComponent<StatManager>();
         }
         return null;
     }

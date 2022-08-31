@@ -24,11 +24,6 @@ public class RequirementHasCondition : ARequirement
 
     private void UpdateConditionManager()
     {
-        conditionManager = TargetingSystem.current.Actor?.GetComponent<ConditionManager>();
-    }
-
-    public override void HandleTargetingSystemChanged(object sender, TargetingSystemChanged e)
-    {        
-        conditionManager = e.actor.GetComponent<ConditionManager>();
+        conditionManager = SelectorManager.current.First?.GetComponent<ConditionManager>();
     }
 }
